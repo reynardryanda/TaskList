@@ -1,0 +1,336 @@
+$primary-color: #00adb5;
+$secondary-color: #393e46;
+$dark-color: #222831;
+$ligth-color: #eee;
+$max-width: 650px;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  line-height: 1.4;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  overflow: hidden;
+}
+
+h1 {
+  padding-bottom: 0.75rem;
+  color: #333;
+}
+
+li {
+  list-style: none;
+  transition: all 0.5s ease;
+}
+
+.active {
+  animation: fadeIn 1s forwards;
+}
+
+.not-active {
+  animation: fadeOut 1s forwards;
+}
+
+.done {
+  animation: done 1s forwards;
+}
+
+@keyframes done {
+  20% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
+// .not-active {
+//   transform: translateY(20px);
+//   opacity: 0;
+//   transition: all 0.5s ease;
+// }
+
+// .active {
+//   transform: translateY(0);
+//   opacity: 1;
+// }
+
+.btn {
+  border: none;
+}
+
+.container {
+  background: $ligth-color;
+  margin: auto;
+  max-width: $max-width;
+  height: 100vh;
+  box-shadow: 0 0 20px #ccc;
+
+  .card {
+    height: 100%;
+    overflow-y: auto;
+
+    &-top {
+      padding: 1rem;
+      background: $primary-color;
+      border-bottom-right-radius: 15px;
+      border-bottom-left-radius: 15px;
+      position: relative;
+      height: 90px;
+
+      .input-field {
+        margin: auto;
+
+        .task-input {
+          background: #f3f3f3;
+          font-size: 1rem;
+          width: 91%;
+          border: none;
+          // border-radius: 15px 50px 50px 15px;
+          border-radius: 15px 0 0 15px;
+          padding: 1rem 1rem;
+        }
+
+        .task-input:focus {
+          outline: 0;
+        }
+      }
+
+      .btn {
+        font-size: 2rem;
+        color: #333;
+        // background: rgba(0, 173, 181, 0.5);
+        background: #ccc;
+        position: absolute;
+        // right: 8px;
+        right: 1.1rem;
+        top: 17.5%;
+        border-radius: 0 50px 50px 0;
+        width: 54px;
+        height: 54px;
+        transition: all 0.3s;
+      }
+
+      .btn:hover {
+        background: #ddd;
+        color: #555;
+        cursor: pointer;
+      }
+
+      .btn:focus {
+        outline: 0;
+      }
+    }
+
+    &-middle {
+      height: calc(100% - 90px);
+      display: none;
+
+      .text-wrap {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        padding-bottom: calc(50% - 90px);
+
+        h1 {
+          padding: 0.5rem;
+        }
+
+        .line {
+          width: 50%;
+          height: 3px;
+          background: $primary-color;
+        }
+      }
+    }
+
+    &-bottom {
+
+      li {
+        padding: 0.5rem 1rem;
+        transition: all 1s ease;
+
+        .flex-base {
+          background: #fff;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 1rem 1.25rem;
+          border-radius: 15px;
+
+          // p {
+          //     font-size: 1.1rem;
+          // }
+
+          .icon {
+            display: flex;
+
+            .correct-icon {
+              border-radius: 50%;
+              border: 2px solid #ccc;
+              color: lawngreen;
+              width: 50px;
+              height: 50px;
+              display: flex;
+              text-align: center;
+              justify-content: center;
+              align-items: center;
+              margin-right: 0.5rem;
+            }
+
+            .correct-icon:hover {
+              color: darkgreen;
+              background: #ccc;
+              cursor: pointer;
+
+              i {
+                pointer-events: none;
+              }
+            }
+
+            .delete-icon {
+              border-radius: 50%;
+              border: 2px solid #ccc;
+              color: red;
+              width: 50px;
+              height: 50px;
+              display: flex;
+              text-align: center;
+              justify-content: center;
+              align-items: center;
+            }
+
+            .delete-icon:hover {
+              color: darkred;
+              background: #ccc;
+              cursor: pointer;
+
+              i {
+                pointer-events: none;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &-finished {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+
+      .line {
+        width: 100%;
+        height: 3px;
+        // background: $secondary-color;
+        align-self: center;
+        border-bottom: 2px dotted #999;
+      }
+
+      li {
+        padding: 0.5rem 1rem;
+        width: inherit;
+
+        .flex-base {
+          background: #fff;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 1rem 1.25rem;
+          border-radius: 15px;
+
+          p {
+            color: #bbb;
+          }
+
+          .icon {
+            display: flex;
+
+            .delete-icon {
+              border-radius: 50%;
+              border: 2px solid #ccc;
+              color: red;
+              width: 50px;
+              height: 50px;
+              display: flex;
+              text-align: center;
+              justify-content: center;
+              align-items: center;
+            }
+
+            .delete-icon:hover {
+              color: darkred;
+              background: #ccc;
+              cursor: pointer;
+
+              i {
+                pointer-events: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .container .card-bottom li .flex-base .icon .delete-icon {
+    width: 30px;
+    height: 30px;
+
+    i {
+      font-size: 12px;
+    }
+  }
+
+  .container .card-bottom li .flex-base .icon .correct-icon {
+    width: 30px;
+    height: 30px;
+
+    i {
+      font-size: 12px;
+    }
+  }
+
+  .container .card-finished li .flex-base .icon .delete-icon {
+    width: 30px;
+    height: 30px;
+
+    i {
+      font-size: 12px;
+    }
+  }
+
+  .container .card-top .btn {
+    top: 18%;
+  }
+}
