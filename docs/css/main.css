@@ -153,10 +153,10 @@ li {
   background: #ccc;
   position: absolute;
   right: 1.1rem;
-  top: 17.5%;
+  top: 17.25%;
   border-radius: 0 50px 50px 0;
-  width: 54px;
-  height: 54px;
+  width: 55px;
+  height: 55px;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
@@ -388,9 +388,6 @@ li {
   }
   .container .card-finished li .flex-base .icon .delete-icon i {
     font-size: 12px;
-  }
-  .container .card-top .btn {
-    top: 18%;
   }
 }
 /*# sourceMappingURL=main.css.map */
